@@ -1,4 +1,6 @@
 streamlit
-transformers
-torch
-Pillow
+pillow
+pytesseract
+opencv-python
+numpy
+
