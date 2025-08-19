@@ -1,7 +1,6 @@
 import streamlit as st
 import pytesseract
-from PIL import Image
-import cv2
+from PIL import Image, ImageOps
 import numpy as np
 
 st.title("📦 Lector de Labels con OCR")
@@ -13,9 +12,8 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Imagen subida", use_column_width=True)
 
-    # Convertir imagen a formato compatible
-    img_cv = np.array(image)
-    gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
+    # Convertir a escala de grises (sin cv2)
+    gray = ImageOps.grayscale(image)
 
     # OCR con pytesseract
     text = pytesseract.image_to_string(gray, lang="eng")
