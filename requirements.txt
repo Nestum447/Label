@@ -1,4 +1,4 @@
-
 streamlit
-pytesseract
+transformers
+torch
 Pillow
